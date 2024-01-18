@@ -1,0 +1,41 @@
+.siderBar {
+    padding-top:68px;
+}
+
+.logoItem {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.logoApp {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-shadow: 0px 2px 10.3999996185302730px rgb(253, 253, 253);
+}
+
+.followApp {
+    font-style: italic;
+    color : #ffffff;
+    margin-top:10px;
+    font-size: 16px;
+}
+
+.containerLink {
+    display:flex;
+    align-items: center;
+}
+
+.followApp svg{
+    width:16px;
+    height:16px;
+    fill: #ffffff;
+    stroke:#e4e4e4;
+    margin-left:10px;
+    margin-top:2px;
+    stroke-width: 5;
+}
