@@ -1,5 +1,8 @@
 .siderBar {
     padding-top:68px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logoItem {
@@ -41,5 +44,56 @@
 }
 
 .menuSiderBar {
-    margin-top:50px;
+    margin-top:10px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.item {
+    width:230px;
+    height:auto;
+    display:flex;
+    align-items: center;
+    font-size:17px;
+    font-weight: 700;
+    line-height: 32.14px;
+    margin-top:40px;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.itemMenu svg{
+    width:25px;
+    height:25px;
+    color : #ffffff;
+    margin-right:10px;
+}
+
+.hoverItem {
+    width:100%;
+    height:100%;
+    background-color:#4A5763;
+    border-radius: 25px;
+}
+
+.lineItem {
+    width:200px;
+    height:1px;
+    border-radius:20px;
+    background-color:white;
+    margin-top:100px;
+}
+
+.devText {
+    font-size:15px;
+    text-align:center;
+    font-weight: 100;
+    margin-top:20px;
+}
+
+.devText:hover {
+    color: aqua;
 }
