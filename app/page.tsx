@@ -1,7 +1,8 @@
 import Image from 'next/image'
+import HomePage from '@/pages/homepage'
 
-export default function HomePage() {
+export default function Page() {
   return (
-    <h1>Hello kkk</h1>
+    <HomePage />
   )
 }
