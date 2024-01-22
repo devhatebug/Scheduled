@@ -1,0 +1,58 @@
+.homePage {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.containerPage {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.titleWeb {
+    font-size: 36px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 53px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.lineItem {
+    width:154px;
+    height:2px;
+    background-color:white;
+    margin-top:15px;
+}
+
+.descriptionWeb {
+    font-size:19px;
+    margin-top:30px;
+    color: rgb(221, 221, 221);
+}
+
+.infoWeb {
+    margin-top:40px;
+}
+
+.titleCategory {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.listInfo, .listContact {
+    font-weight: 600;
+    list-style-type: circle;
+    margin-top:20px;
+    margin-left:30px;
+    font-size:17px;
+    color: rgb(221, 221, 221);
+}
+
+.listInfo a, .listContact a{
+    color: #00FFF0;
+    font-style: italic;
+    font-weight: 700;
+}
