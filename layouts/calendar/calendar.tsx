@@ -1,44 +1,99 @@
-"use client"
-import React from 'react';
-import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isToday } from 'date-fns';
+import React, { useEffect, useState } from 'react';
+import clsx from 'clsx';
 import style from "./calendar.module.css";
 
-export default function Calendar () {
-  const [currentMonth, setCurrentMonth] = React.useState(new Date());
+interface CalendarProps {
+  year: number;
+  month: number;
+}
 
-  const nextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
-  const prevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
 
-  const getDaysInMonth = () => {
-    const start = startOfMonth(currentMonth);
-    const end = endOfMonth(currentMonth);
-    return eachDayOfInterval({ start, end });
+
+const Calendar: React.FC<CalendarProps> = ({ year: initialYear, month: initialMonth }) => {
+  const dataRank = [
+    { id: 1, title: "Sun" },
+    { id: 2, title: "Mon" },
+    { id: 3, title: "Tue" },
+    { id: 4, title: "Wed" },
+    { id: 5, title: "Thu" },
+    { id: 6, title: "Fri" },
+    { id: 7, title: "Sat" },
+  ];
+
+  const [selectedDate, setSelectedDate] = useState(new Date(initialYear, initialMonth, 1));
+  const [displayedMonth, setDisplayedMonth] = useState(initialMonth);
+  const [displayedYear, setDisplayedYear] = useState(initialYear);
+
+  const daysInMonth = new Date(displayedYear, displayedMonth + 1, 0).getDate();
+  const firstDayOfMonth = new Date(displayedYear, displayedMonth, 1).getDay();
+
+  const weeks = [];
+  let days = [];
+
+  for (let i = 0; i < firstDayOfMonth; i++) {
+    days.push(null);
   };
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    days.push(day);
+    if (days.length === 7) {
+      weeks.push([...days]);
+      days = [];
+    }
+  };
+
+  if (days.length > 0) {
+    weeks.push([...days]);
+  };
+
+  const handlePrevMonth = () => {
+    const newDate = new Date(displayedYear, displayedMonth - 1, 1);
+    setDisplayedMonth(newDate.getMonth());
+    setDisplayedYear(newDate.getFullYear());
+    setSelectedDate(newDate);
+  };
+
+  const handleNextMonth = () => {
+    const newDate = new Date(displayedYear, displayedMonth + 1, 1);
+    setDisplayedMonth(newDate.getMonth());
+    setDisplayedYear(newDate.getFullYear());
+    setSelectedDate(newDate);
+  };
+
+  const currentDate = new Date();
+  const [getDay, setGetDay] = useState(null);
+  const [dayNow, setDayNow] = useState(currentDate.getDate());
+  const handleChooseDay = (day: any) => {
+      setGetDay(day);
+      setDayNow(0);
+  }
+
   return (
-    <div>
-      <div>
-        <button onClick={prevMonth}>&#60;</button>
-        <span> {format(currentMonth, 'MMMM yyyy')} </span>
-        <button onClick={nextMonth}>&#62;</button>
+    <div className={clsx(style.calendar)}>
+      <div className={clsx(style.changeDate)}>
+        <button onClick={handlePrevMonth}>&#60;</button>
+        {`Tháng ${displayedMonth + 1} năm ${displayedYear}`}
+        <button onClick={handleNextMonth}>&#62;</button>
       </div>
-      <table>
-        <thead>
+      <table className={clsx(style.dataDate)}>
+        <thead className={clsx(style.headTable)}>
           <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
+            {dataRank.map((data, index) => (
+              <th key={index}>{data.title}</th>
+            ))}
           </tr>
         </thead>
-        <tbody>
-          {getDaysInMonth().map((day: any) => (
-            <tr key={day}>
-              {eachDayOfInterval({ start: day, end: day }).map((date) => (
-                <td key={date} className={isToday(date) ? 'today' : ''}>
-                  {format(date, 'd')}
+        <tbody className={clsx(style.dataTable)}>
+          {weeks.map((week, index) => (
+            <tr key={index}>
+              {week.map((day, index) => (
+                <td 
+                  key={index} 
+                  onClick={() => handleChooseDay(day)}
+                  className={clsx(dayNow === day ? style.getDay : "", getDay === day && style.getDay)}
+                  id="dayData"
+                >
+                  {day}
                 </td>
               ))}
             </tr>
@@ -49,3 +104,4 @@ export default function Calendar () {
   );
 };
 
+export default Calendar;
