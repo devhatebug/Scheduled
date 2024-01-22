@@ -1,3 +1,4 @@
+import Schedule from "@/pages/schedulePage"
 export default function Page() {
-    return <h1>Trang thoi khoa bieu</h1>
+    return <Schedule />
   }
