@@ -1,0 +1,122 @@
+.calendarContainer {
+    display:flex;
+    align-items: flex-start;
+}
+
+.task {
+    margin-left:128px;
+}
+
+.titleTask {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.containerTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listItem {
+    margin-top:19px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-left:32px;
+    padding-right:46px;
+    width:520px;
+    height: 120px;
+    background-color: #2D3447CC;
+    border-radius: 30px;
+    margin-top:44px;
+}
+
+.itemTime {
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+}
+
+.lineTime {
+    width:2px;
+    height:20px;
+    background-color: white;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.containerItem {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-between;
+    margin-left:40px;
+    height:80px;
+}
+
+.titleItem {
+    font-size:18px;
+    font-weight: 800;
+}
+
+.statusItem {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.done {
+    font-size:15px;
+    font-weight: 800;
+    color: #249C95;
+    cursor: pointer;
+}
+
+.continue {
+    font-size:15px;
+    font-weight: 800;
+    color: #FF2727;
+    cursor: pointer;
+}
+
+.btnSeeMore {
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background-color: #2D3447CC;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top:25px;
+}
+
+.editTask {
+    width:270px;
+    height:70px;
+    background-color: #0C9D8C;
+    border-radius: 20px;
+    margin-top:100px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:20px;
+    padding-right:20px;
+    cursor: pointer;
+}
+
+.editTask svg{
+    width:20px;
+    height:20px;
+    margin-right:10px;
+    stroke-width: 1.5;
+}
