@@ -31,7 +31,7 @@ export default function SiderBar() {
         {
             id : 5,
             title : "Hỗ trợ xếp tín",
-            src : "./schedule-demo",
+            src : "./tin-chi",
         },
         {
             id : 6,
@@ -47,7 +47,7 @@ export default function SiderBar() {
         if (currentLink === "/schedule") setOnItem(2);
         if (currentLink === "/onus") setOnItem(3);
         if (currentLink === "/event") setOnItem(4);
-        if (currentLink === "/schedule-demo") setOnItem(5);
+        if (currentLink === "/tin-chi") setOnItem(5);
         if (currentLink === "/profile") setOnItem(6);
     })
 
