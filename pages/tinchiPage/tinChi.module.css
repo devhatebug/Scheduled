@@ -13,8 +13,8 @@
 }
 
 .formChooseTinChi {
-    width:98vw;
-    height:auto;
+    width:100vw;
+    height:100vh;
     background-color: rgba(0, 0, 0, 0.493);
     position: absolute;
     top:0;

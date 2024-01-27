@@ -2,6 +2,7 @@
     padding-top:70px;
     display: flex;
     justify-content: center;
+    height:90vh;
 }
 
 .container {
@@ -43,7 +44,28 @@
 
 .listClass {
     margin-top:30px;
+    height:600px;
+    overflow-y: scroll;
+    padding-right:20px;
 }
+
+.listClass::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #2d3447;
+}
+
+.listClass::-webkit-scrollbar
+{
+	width: 1px;
+	background-color: #F5F5F5;
+}
+
+.listClass::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
 
 .itemClass {
     width:700px;

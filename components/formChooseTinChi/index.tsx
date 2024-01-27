@@ -1,14 +1,18 @@
   import clsx from "clsx";
 import style from "./formChooseTinChi.module.css";
-import { useState } from "react";
+import { useState } from "react"; 
 
-export default function ChooseTinChiForm () {
+interface activeClose {
+    closeForm: () => void;
+}
+
+const ChooseTinChiForm: React.FC<activeClose> = ({ closeForm }) => {
     return (
         <div className={clsx(style.formContainer)}>
             <div className={clsx(style.container)}>
                 <div className={clsx(style.btnContainer)}>
                     <button className={clsx(style.btnReset)}>RESET</button>
-                    <button className={clsx(style.btnClose)}>Close</button>
+                    <button onClick={closeForm} className={clsx(style.btnClose)}>Close</button>
                 </div>
                 <div className={clsx(style.listClass)}>
                     <div className={clsx(style.itemClass)}>
@@ -56,3 +60,5 @@ export default function ChooseTinChiForm () {
         </div>
     )
 }
+
+export default ChooseTinChiForm

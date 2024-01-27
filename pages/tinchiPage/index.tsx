@@ -3,7 +3,7 @@ import clsx from "clsx";
 import style from "./tinChi.module.css";
 import URL_DATA from "@/data/tinchi.json";   
 import ChooseTinChiForm from "@/components/formChooseTinChi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TinChi() {
     const API = URL_DATA;
@@ -97,14 +97,16 @@ export default function TinChi() {
     
     console.log(subjectCt4[0]);
     const [showForm, setShowForm] = useState(false);
-    const handleShowForm = () => {
-        setShowForm(!showForm);
+    const handleOpenForm = () => {
+        setShowForm(true);
     }
-
+    const handleCloseForm = () => {
+        setShowForm(false);
+    }
     return (
         <>
         <div className={clsx(style.tinchiPage)}>
-            <button onClick={handleShowForm} className={clsx(style.btnChooseClass)}>CHỌN LỚP</button>
+            <button onClick={handleOpenForm} className={clsx(style.btnChooseClass)}>CHỌN LỚP</button>
             <div className={clsx(style.tableDisplay, "relative overflow-x-auto shadow-md sm:rounded-lg")}>
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <caption className="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
@@ -157,9 +159,11 @@ export default function TinChi() {
                 </table>
             </div>
         </div>
-        <div className={clsx(style.formChooseTinChi)}>
-            <ChooseTinChiForm />
-        </div>
+        {showForm && (
+            <div className={clsx(style.formChooseTinChi)}>
+                <ChooseTinChiForm closeForm={handleCloseForm} />
+            </div>
+        )}
         </>
     )
 }       
