@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import style from "./tableAt18.module.css";
 
@@ -27,32 +27,12 @@ const TableAt18 = () => {
                                 <label htmlFor="checkbox-table-1" className="sr-only">checkbox</label>
                             </div>
                         </td>
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
+                        <th scope="row" className="px-6 py-4 font-extrabold text-gray-900 whitespace-nowrap dark:text-white">
+                            An toàn cơ sở dữ liệu-2-23
                         </th>
                         <td className="px-6 py-4">
                             <select className={clsx(style.selectClass)}>
-                                <option selected>Chọn lớp</option>
-                                <option value="US">United States</option>
-                                <option value="CA">Canada</option>
-                                <option value="FR">France</option>
-                                <option value="DE">Germany</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr className="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td className="w-4 p-4">
-                            <div className="flex items-center">
-                                <input className={clsx(style.inputClass)} id="checkbox-table-1" type="checkbox" />
-                                <label htmlFor="checkbox-table-2" className="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
-                        <td className="px-6 py-4 ml-20">
-                            <select className={clsx(style.selectClass)}>
-                                <option selected>Chọn lớp</option>
+                                <option value="Chon lop">Chọn lớp</option>
                                 <option value="US">United States</option>
                                 <option value="CA">Canada</option>
                                 <option value="FR">France</option>
