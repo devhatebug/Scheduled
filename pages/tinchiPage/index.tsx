@@ -146,13 +146,7 @@ export default function TinChi() {
                                 Apple MacBook Pro 17"
                             </th>
                             <td className="cursor-help px-5 py-5">
-                                Silver
-                            </td>
-                            <td className="cursor-help px-5 py-5">
-                                Laptop
-                            </td>
-                            <td className="cursor-help px-5 py-5">
-                                $2999
+                                
                             </td>
                         </tr>
                     </tbody>
