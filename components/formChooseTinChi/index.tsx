@@ -92,4 +92,4 @@ const ChooseTinChiForm: React.FC<activeClose> = ({ closeForm }) => {
     )
 }
 
-export default ChooseTinChiForm
+export default ChooseTinChiForm;

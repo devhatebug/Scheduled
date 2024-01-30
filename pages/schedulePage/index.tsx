@@ -4,6 +4,7 @@ import style from "./schedule.module.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Calendar from "@/layouts/calendar/calendar";
+import AddCalendarForm from "@/components/formAddCalendar";
 
 export default function Schedule() {
 
@@ -44,7 +45,17 @@ export default function Schedule() {
             time_end : "21:15",
         },
     ];
+    
+    // active open form add calendar
+    const [openForm, setOpenForm] = useState(false);
+    const handleOpenForm =  () => {
+        setOpenForm(true);
+    }
+    const handleCloseForm = () => {
+        setOpenForm(false);
+    }
 
+    // reder calendar
     const [limitData, setLimitData] = useState(2);
     const [startData, setStartData] = useState(0);
     const handleSeeMore = () => {
@@ -99,7 +110,7 @@ export default function Schedule() {
                     </div>
                 </div>
             </div>
-            <div className={clsx(style.editCalendar)}>
+            <button onClick={handleOpenForm} className={clsx(style.editCalendar)}>
                 <svg fill="none" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
                     <g stroke="#fff" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m6.9257 13.202-3 0.26 0.26-3 6.24-6.2c0.0932-0.09524 0.2044-0.17092 0.3272-0.22259 0.1227-0.05167 0.2546-0.07828 0.3878-0.07828s0.2651 0.02661 0.3879 0.07828 0.234 0.12735 0.3271 0.22259l1.27 1.28c0.0937 0.09297 0.1681 0.20357 0.2189 0.32543s0.0769 0.25256 0.0769 0.38457-0.0261 0.26272-0.0769 0.38458-0.1252 0.23246-0.2189 0.32542l-6.2 6.24z"/>
@@ -107,7 +118,11 @@ export default function Schedule() {
                     </g>
                 </svg>
                 <div>Tạo / Chỉnh sửa lịch</div>
-            </div>
+            </button>
+
+            {openForm && <div className={clsx(style.formAddCalendar)}>
+                <AddCalendarForm onClose={handleCloseForm} />
+            </div>}
         </div>
     )
 }

@@ -78,12 +78,12 @@ export default function ProfilePage() {
                         <path d="m13.637 1.198a1 1 0 0 1 0.134 1.408l-8.04 9.73-3e-3 2e-3a1.924 
                         1.924 0 0 1-1.5 0.693 1.924 1.924 0 0 1-1.5-0.75l-2.518-3.236a1 1 0 1 
                         1.578-1.228l2.464 3.167 7.976-9.652a1 1 0 0 1 1.408-0.134z" 
-                        clipRule="evenodd" fillRule="evenodd"/>
+                        />
                     </svg>
                 </div>
 
                 <div className={clsx(style.msvUser)}>
-                    {"MSV : " +  fakeUser.map(data => data.student_code).join()}
+                    {"MSV : " +  fakeUser.map(data => data.student_code).join().toUpperCase()}
                 </div>
             </div>
 

@@ -1,0 +1,33 @@
+.addCalendar {
+    width:50vw;
+    height:700px;
+    overflow-y: auto;
+    margin:0 auto;
+    background-color:#2d3447;
+    border-radius: 15px;
+    margin-top:100px;
+}
+
+.headForrm {
+    position: fixed;
+}
+
+.btnClose {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-top:-40px;
+    margin-right:20px;
+}
+
+.titleForm {
+    text-align:center;
+    margin-top:50px;
+    font-size:25px;
+    font-weight:700;
+    padding-top:20px;
+}
