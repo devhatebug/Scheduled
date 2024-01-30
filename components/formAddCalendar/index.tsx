@@ -26,8 +26,12 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
         setFormOptionBtn(false);
     };
     const handleSelectDay = () => {
-        setChooseDay(true);
+        setChooseDay(!chooseDay);
     }
+
+    const handleCheckLocationPopup = (e: React.MouseEvent) => {
+        e.stopPropagation();
+      };
 
     return (
         <>
@@ -45,7 +49,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                 </button>
             </div>
         </div>}
-        {openAddCalendar && <div className={clsx(style.addCalendar)}>
+        {openAddCalendar && <div onClick={handleSelectDay} className={clsx(style.addCalendar)}>
             <div className={clsx(style.headForm)}>
                 <div className={clsx(style.optionActiveFormAdd)}>
                     <button onClick={handleBackFormFirt} className={clsx(style.btnBack)}>back</button>
@@ -74,7 +78,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                             </svg>
                         </div>
                         {chooseDay &&
-                            <div className={clsx(style.listDays)}>
+                            <div onClick={handleCheckLocationPopup} className={clsx(style.listDays)}>
                                 {dayOfWeek.map((data,index) => (
                                     <div className={clsx(style.itemDay)} key={index}>
                                         <input type="checkbox" name="days" id={data} value={data}/>

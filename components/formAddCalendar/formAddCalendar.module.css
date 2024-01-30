@@ -164,7 +164,7 @@
 
 .listDays {
     width: auto;
-    height:150px;
+    height:100px;
     overflow-y: auto;
     position: absolute;
     display: flex;
@@ -173,7 +173,7 @@
     z-index: 1000;
     background-color: #51676d8a;
     border-radius: 10px;
-    padding:20px;
+    padding:10px 15px 10px 10px;
 }
 
 .listDays::-webkit-scrollbar-track {
@@ -183,14 +183,14 @@
 
 .listDays::-webkit-scrollbar
 {
-	width: 2px;
+	width: 0px;
 	background-color: #F5F5F5;
 }
 
 .listDays::-webkit-scrollbar-thumb
 {
     background-color: #1f2330;
-	border: 2px solid #1f2330;
+	border: 1px solid #1f2330;
     border-radius: 15px;
 }
 
@@ -208,4 +208,9 @@
     border:none;
     background-color:#2d3447;
     margin-right:15px;
+}
+
+.itemDay label{
+    font-weight: 500;
+    font-size:15px;
 }
