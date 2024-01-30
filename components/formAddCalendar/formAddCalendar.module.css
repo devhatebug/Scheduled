@@ -1,0 +1,211 @@
+.optionActive {
+    width:50vw;
+    height:400px;
+    overflow-y: auto;
+    background-color:#2d3447;
+    border-radius: 15px;
+    margin:0 auto;
+    margin-top:150px;
+}
+
+.btnCloseFirt {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-top:20px;
+    margin-right:20px;
+}
+
+.listBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:170px;
+    padding-right:-20px;
+}
+
+.btnOpenAddCalendar,
+.btnOpenEditCalendar {
+    width:auto;
+    height:auto;
+    padding:10px 20px 10px 20px;
+    background-color: #51676d8a;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-right:20px;
+}
+
+.addCalendar {
+    width:50vw;
+    height:700px;
+    overflow-y: auto;
+    margin:0 auto;
+    background-color:#2d3447;
+    border-radius: 15px;
+    margin-top:100px;
+}
+
+.headForrm {
+    position: fixed;
+}
+
+.btnClose {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-right:20px;
+}
+
+.optionActiveFormAdd {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top:20px;
+}
+
+.btnBack {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-right:20px;
+}
+
+.titleForm {
+    text-align:center;
+    font-size:25px;
+    font-weight:700;
+    padding-top:20px;
+}
+
+.bodyForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerForm {
+    width:90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.itemContainer {
+    width:100%;
+    margin-top:50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.containerForm label{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.containerForm input{
+    width: 300px;
+    height:65px;
+    border-radius: 10px;
+    background-color: #2d3447;
+    border:2px solid #51676d8a;
+    padding-left:10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.767);
+}
+
+.containerForm input:focus {
+    border: 3px solid #2d3447;
+    background-color:#51676d8a;
+}
+
+.selectDay {
+    margin-left: 148px;
+    width:auto;
+    height:55px;
+    display: flex;
+    align-items: center;
+    background-color: #51676d8a;
+    padding:20px;
+    font-size:17px;
+    font-weight:600;
+    cursor: cell;
+    border-radius: 10px;
+}
+
+.selectDay svg{
+    margin-left:10px;
+}
+
+.chooseActive {
+    margin-top:40px;
+    display: flex;
+    width: auto;
+    height:auto;
+    align-items: center;
+    padding:20px;
+}
+
+.listDays {
+    width: auto;
+    height:150px;
+    overflow-y: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+    background-color: #51676d8a;
+    border-radius: 10px;
+    padding:20px;
+}
+
+.listDays::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #2d3447;
+}
+
+.listDays::-webkit-scrollbar
+{
+	width: 2px;
+	background-color: #F5F5F5;
+}
+
+.listDays::-webkit-scrollbar-thumb
+{
+    background-color: #1f2330;
+	border: 2px solid #1f2330;
+    border-radius: 15px;
+}
+
+.itemDay {
+    width: auto;
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.itemDay input{
+    width:15px;
+    height: 15px;
+    border-radius: 10px;
+    border:none;
+    background-color:#2d3447;
+    margin-right:15px;
+}
