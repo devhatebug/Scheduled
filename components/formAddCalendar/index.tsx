@@ -7,8 +7,6 @@ interface activeClose {
     onClose : () => void;
 }
 
-
-
 const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
     const dayOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
     
