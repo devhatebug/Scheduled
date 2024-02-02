@@ -27,9 +27,54 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
         setChooseDay(!chooseDay);
     }
 
-    const handleCheckLocationPopup = (e: React.MouseEvent) => {
-        e.stopPropagation();
-      };
+    // function check value input time start
+    const [warningHourStart, setWarningHourStart] = useState(false);
+    const [showWarningHourStart, setShowWarningHourStart] = useState<string | null>("");
+    const [warningMinuteStart, setWarningMinuteStart] = useState(false);
+    const [showWarningMinuteStart, setShowWarningMinuteStart]= useState<string | null>("");
+    const handleCheckHourStart = (event :any) => {
+        const value = event.target.value;
+        if (value < 0 || value > 24) {
+            setWarningHourStart(true);
+            setShowWarningHourStart("Giờ chỉ nằm trong khoảng 00 -> 24");
+        } else {
+            setWarningHourStart(false);
+        };
+    };
+    const handleCheckMinuteStart = (e:any) => {
+        const value = e.target.value;
+        if (value < 0 || value >= 60) {
+            setWarningMinuteStart(true);
+            setShowWarningMinuteStart("Phút chỉ nằm trong khoảng 0->59")
+        } else {
+            setWarningMinuteStart(false);
+        }
+    }
+
+    // function check time input end 
+    const [warningHourEnd, setWarningHourEnd] = useState(false);
+    const [warningMinuteEnd, setWarningMinuteEnd] = useState(false);
+    const [showWarningHourEnd, setShowWarningHourEnd] = useState<string | null>("");
+    const [showwWarningMinuteEnd, setShowWarningMinuteEnd] = useState<string | null>("");
+    const handleCheckHourEnd = (e: any) => {
+        const value = e.target.value;
+        if(value < 0 || value > 24) {
+            setWarningHourEnd(true);
+            setShowWarningHourEnd("Giờ chỉ nằm trong khoảng 00 -> 24");
+        } else {
+            setWarningHourEnd(false);
+        }
+    }
+
+    const handleCheckMinuteEnd = (e :any) => {
+        const value = e.target.value;
+        if(value < 0 || value >= 60) {
+            setWarningMinuteEnd(true);
+            setShowWarningMinuteEnd("Phút chỉ nằm trong khoảng 0->59");
+        } else {
+            setWarningMinuteEnd(false);
+        };
+    }
 
     return (
         <>
@@ -47,7 +92,8 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                 </button>
             </div>
         </div>}
-        {openAddCalendar && <div onClick={handleSelectDay} className={clsx(style.addCalendar)}>
+        {openAddCalendar && 
+        <div className={clsx(style.addCalendar)}>
             <div className={clsx(style.headForm)}>
                 <div className={clsx(style.optionActiveFormAdd)}>
                     <button onClick={handleBackFormFirt} className={clsx(style.btnBack)}>back</button>
@@ -76,7 +122,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                             </svg>
                         </div>
                         {chooseDay &&
-                            <div onClick={handleCheckLocationPopup} className={clsx(style.listDays)}>
+                            <div className={clsx(style.listDays)}>
                                 {dayOfWeek.map((data,index) => (
                                     <div className={clsx(style.itemDay)} key={index}>
                                         <input type="checkbox" name="days" id={data} value={data}/>
@@ -95,10 +141,108 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                         }
                     </div>
 
+                    <div className={clsx(style.itemContainer)}>
+                        <label htmlFor="hour_start">
+                            Bắt đầu vào :
+                            {warningHourStart && 
+                                <div className={clsx(style.warningToast)}>
+                                    {showWarningHourStart}
+                                </div>
+                            }
+                            {warningMinuteStart && 
+                                <div className={clsx(style.warningToast)}>
+                                    {showWarningMinuteStart}
+                                </div>
+                            }
+                        </label>
+                        
+                        <div className={clsx(style.inputChooseTime)}>
+                            <input 
+                                onChange={handleCheckHourStart}
+                                step="1"
+                                max="24"
+                                min="1" 
+                                id="hour_start" 
+                                name="hour" 
+                                type="number" 
+                            />
+                            <span>:</span>
+                            <input 
+                                onChange={handleCheckMinuteStart}
+                                name="minute" 
+                                step="1"
+                                max="59"
+                                min="0"
+                                type="number" 
+                            />
+                            <select name="choose_type">
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className={clsx(style.itemContainer)}>
+                        <label htmlFor="hour_end">
+                            Kết thúc vào :
+                            {warningHourEnd && 
+                                <div className={clsx(style.warningToast)}>
+                                    {showWarningHourEnd}
+                                </div>
+                            }
+                            {warningMinuteEnd && 
+                                <div className={clsx(style.warningToast)}>
+                                    {showwWarningMinuteEnd}
+                                </div>
+                            }
+                        </label>
+                        <div className={clsx(style.inputChooseTime)}>
+                            <input 
+                                onChange={handleCheckHourEnd}
+                                step="1"
+                                max="24"
+                                min="1" 
+                                id="hour_end" 
+                                name="hour" 
+                                type="number" 
+                            />
+                            <span>:</span>
+                            <input 
+                                onChange={handleCheckMinuteEnd}
+                                name="minute" 
+                                step="1"
+                                max="59"
+                                min="0"
+                                type="number" 
+                            />
+                            <select name="choose_type">
+                                <option value="AM">AM</option>
+                                <option value="PM">PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className={clsx(style.itemContainer)}>
+                        <label htmlFor="location_study">Địa điểm học :</label>
+                        <input id="location_study" type="text" />
+                    </div>
                 </form>
                 <div className={clsx(style.chooseActive)}>
-                    <button className={clsx(style.btnReset)} type="reset">Hủy</button>
-                    <button className={clsx(style.btnForm)} form="formAddCalendar" type="submit" value="Tạo lịch">Tạo lịch</button>
+                    <button 
+                        className={clsx(style.btnReset)} 
+                        form="formAddCalendar" 
+                        type="reset" 
+                        value="Huy">
+                            Hủy
+                    </button>
+                    <button 
+                        // onChange={}
+                        className={clsx(style.btnCreate)} 
+                        form="formAddCalendar" 
+                        type="submit" 
+                        value="Tạo lịch">
+                            Tạo lịch
+                    </button>
                 </div>
             </div>
         </div>}

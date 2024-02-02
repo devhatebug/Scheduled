@@ -40,6 +40,7 @@
     margin-right:20px;
 }
 
+
 .addCalendar {
     width:50vw;
     height:700px;
@@ -48,6 +49,7 @@
     background-color:#2d3447;
     border-radius: 15px;
     margin-top:100px;
+    position: relative;
 }
 
 .headForrm {
@@ -94,6 +96,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
+}
+
+.addCalendar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #2d3447;
+}
+
+.addCalendar::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+.addCalendar::-webkit-scrollbar-thumb
+{
+    background-color: #1f2330;
+	border: 1px solid #1f2330;
+    border-radius: 15px;
 }
 
 .containerForm {
@@ -125,6 +146,7 @@
     background-color: #2d3447;
     border:2px solid #51676d8a;
     padding-left:10px;
+    padding-right:10px;
     font-size: 17px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.767);
@@ -160,6 +182,27 @@
     height:auto;
     align-items: center;
     padding:20px;
+}
+
+.btnReset {
+    width:auto;
+    height:auto;
+    padding:5px 10px 5px 10px;
+    font-size:20px;
+    font-weight: 700;
+    background-color: rgb(153, 27, 27);
+    border-radius: 10px;
+    margin-right:20px;
+}
+
+.btnCreate {
+    width:auto;
+    height:auto;
+    padding:5px 10px 5px 10px;
+    font-size:20px;
+    font-weight: 700;
+    background-color: rgb(42, 131, 214);
+    border-radius: 10px;
 }
 
 .listDays {
@@ -214,3 +257,47 @@
     font-weight: 500;
     font-size:15px;
 }
+
+.inputChooseTime {
+    display: flex;
+    align-items: center;  
+}
+
+.warningToast {
+    display: flex;
+    align-items: flex-start;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(247, 194, 18);
+    width:100px;
+    word-wrap: break-word;
+}
+
+.inputChooseTime input{
+    width:100px;
+    margin-right:10px;
+    margin-left:10px;
+    -moz-appearance: textfield;
+}
+
+.inputChooseTime input::-webkit-outer-spin-button,
+.inputChooseTime input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputChooseTime span{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.inputChooseTime select{
+    width:80px;
+    height:65px;
+    border-radius: 10px;
+    border:2px solid #51676d8a;
+    background-color: #2d3447;
+    padding-left: 10px;
+    font-weight: 800;
+}
+
