@@ -76,6 +76,40 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
         };
     }
 
+    // handle check data form submit
+    const warning = "Vui lòng không để trống mục này";
+    const [showWarning, setShowWarning] = useState<boolean>();
+    const [checkSubmit, setCheckSubmit] = useState<boolean>(false);
+    const [dataName, setDataName] = useState<boolean>();
+    const followValueName = (e:any) => {
+        const value = e.target.value;
+        if (value != null || value != "") {
+            setDataName(true);
+            setCheckSubmit(true);
+            setShowWarning(false);
+        };
+        if (value === null || value === "") {
+            setDataName(false);
+            setCheckSubmit(false);
+        };
+    };
+
+    const handleCheckData = () => {
+        if(dataName) {
+            setShowWarning(false);
+        } else {
+            setShowWarning(true);
+        }
+    }
+
+    const handleSubmitForm = () => {
+        if (checkSubmit) {
+            onClose();
+        } else {
+            handleCheckData();
+        }
+    }
+
     return (
         <>
         {formOptionBtn && <div className={clsx(style.optionActive)}>
@@ -105,8 +139,15 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
             <div className={clsx(style.bodyForm)}>
                 <form className={clsx(style.containerForm)} method="POST" id="formAddCalendar">
                     <div className={clsx(style.itemContainer)}>
-                        <label htmlFor="name_subject">Tên môn học :</label>
-                        <input id="name_subject" type="text" name="nameSubject"/>
+                        <label htmlFor="name_subject">
+                            Tên môn học :
+                            {showWarning && 
+                                <div className={clsx(style.warningToast)}>
+                                    {warning}
+                                </div>
+                            }
+                        </label>
+                        <input onChange={followValueName} id="name_subject" type="text" name="nameSubject"/>
                     </div>
                     <div className={clsx(style.itemContainer)}>
                         <label>Thời gian học :</label>
@@ -230,16 +271,13 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                 <div className={clsx(style.chooseActive)}>
                     <button 
                         className={clsx(style.btnReset)} 
-                        form="formAddCalendar" 
                         type="reset" 
                         value="Huy">
                             Hủy
                     </button>
                     <button 
-                        // onChange={}
+                        onClick={handleSubmitForm}
                         className={clsx(style.btnCreate)} 
-                        form="formAddCalendar" 
-                        type="submit" 
                         value="Tạo lịch">
                             Tạo lịch
                     </button>
