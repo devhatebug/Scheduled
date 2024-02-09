@@ -8,7 +8,6 @@ interface activeClose {
 }
 
 const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
-    const dayOfWeek = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
     
     const [formOptionBtn, setFormOptionBtn] = useState(true);
     const [openAddCalendar, setOpenAddCalendar] = useState(false);
@@ -151,35 +150,16 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                     </div>
                     <div className={clsx(style.itemContainer)}>
                         <label>Thời gian học :</label>
-                        <div onClick={handleSelectDay} className={clsx(style.selectDay)}>
-                            Chọn thứ 
-                            <svg width="20px" height="20px" fill="none" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                                <g stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M3.25 6C4.76878 6 6 4.76878 6 3.25S4.76878 0.5 3.25 0.5 0.5 1.73122 0.5 3.25 1.73122 6 3.25 6Z"/>
-                                <path d="M10.75 6c1.5188 0 2.75 -1.23122 2.75 -2.75S12.2688 0.5 10.75 0.5C9.23122 0.5 8 1.73122 8 3.25S9.23122 6 10.75 6Z"/>
-                                <path d="M3.25 13.5C4.76878 13.5 6 12.2688 6 10.75 6 9.23122 4.76878 8 3.25 8S0.5 9.23122 0.5 10.75c0 1.5188 1.23122 2.75 2.75 2.75Z"/>
-                                <path d="m10.75 13.5c1.5188 0 2.75-1.2312 2.75-2.75 0-1.5188-1.2312-2.75-2.75-2.75-1.5188 0-2.75 1.2312-2.75 2.75 0 1.5188 1.2312 2.75 2.75 2.75z"/>
-                                </g>
-                            </svg>
-                        </div>
-                        {chooseDay &&
-                            <div className={clsx(style.listDays)}>
-                                {dayOfWeek.map((data,index) => (
-                                    <div className={clsx(style.itemDay)} key={index}>
-                                        <input type="checkbox" name="days" id={data} value={data}/>
-                                        <label htmlFor={data}>
-                                            {data === "monday" && "Thứ 2"}
-                                            {data === "tuesday" && "Thứ 3"}
-                                            {data === "wednesday" && "Thứ 4"}
-                                            {data === "thursday" && "Thứ 5"}
-                                            {data === "friday" && "Thứ 6"}
-                                            {data === "saturday" && "Thứ 7"}
-                                            {data === "sunday" && "Chủ nhật"}
-                                        </label>
-                                    </div>
-                                ))}
-                            </div>
-                        }
+                        <select className={clsx(style.selectDay)}>
+                            <option selected value="default">Chọn ngày</option>
+                            <option value="monday">Thứ 2</option>
+                            <option value="tuesday">Thứ 3</option>
+                            <option value="wednesday">Thứ 4</option>
+                            <option value="thursday">Thứ 5</option>
+                            <option value="friday">Thứ 6</option>
+                            <option value="satuday">Thứ 7</option>
+                            <option value="sunday">Chủ nhật</option>
+                        </select>
                     </div>
 
                     <div className={clsx(style.itemContainer)}>
