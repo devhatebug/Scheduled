@@ -19,11 +19,12 @@
 body {
   color: #ffffff;
   background: #171e31;
-  height:100vh;
+  height: auto;
   display:flex;
   justify-content: flex-start;
   max-width: 1630px;
   overflow-x: auto;
+  position: relative;
   font-family: 'Be Vietnam Pro', sans-serif;
 }
 
@@ -36,6 +37,7 @@ body {
   box-shadow: 7px 8px 85.0999984741211px 0px #222B46;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
+  min-height: 100vh;
 }
 
 .container {

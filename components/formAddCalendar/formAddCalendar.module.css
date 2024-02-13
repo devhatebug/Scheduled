@@ -1,0 +1,251 @@
+.optionActive {
+    width:50vw;
+    height:400px;
+    overflow-y: auto;
+    background-color:#2d3447;
+    border-radius: 15px;
+    margin:0 auto;
+    margin-top:150px;
+}
+
+.btnCloseFirt {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-top:20px;
+    margin-right:20px;
+}
+
+.listBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:170px;
+    padding-right:-20px;
+}
+
+.btnOpenAddCalendar,
+.btnOpenEditCalendar {
+    width:auto;
+    height:auto;
+    padding:10px 20px 10px 20px;
+    background-color: #51676d8a;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-right:20px;
+}
+
+
+.addCalendar {
+    width:50vw;
+    height:700px;
+    overflow-y: auto;
+    margin:0 auto;
+    background-color:#2d3447;
+    border-radius: 15px;
+    margin-top:100px;
+    position: relative;
+}
+
+.headForrm {
+    position: fixed;
+}
+
+.btnClose {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-right:20px;
+}
+
+.optionActiveFormAdd {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top:20px;
+}
+
+.btnBack {
+    background-color: #51676d8a;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    float: right;
+    margin-right:20px;
+}
+
+.titleForm {
+    text-align:center;
+    font-size:25px;
+    font-weight:700;
+    padding-top:20px;
+}
+
+.bodyForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+
+.addCalendar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #2d3447;
+}
+
+.addCalendar::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+.addCalendar::-webkit-scrollbar-thumb
+{
+    background-color: #1f2330;
+	border: 1px solid #1f2330;
+    border-radius: 15px;
+}
+
+.containerForm {
+    width:90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.itemContainer {
+    width:100%;
+    margin-top:50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.containerForm label{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.containerForm input{
+    width: 300px;
+    height:65px;
+    border-radius: 10px;
+    background-color: #2d3447;
+    border:2px solid #51676d8a;
+    padding-left:10px;
+    padding-right:10px;
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.767);
+}
+
+.containerForm input:focus {
+    border: 3px solid #2d3447;
+    background-color:#51676d8a;
+}
+
+.selectDay {
+    margin-left: 148px;
+    display: flex;
+    align-items: center;
+    background-color: #51676d;
+    padding:20px;
+    font-size:17px;
+    font-weight:600;
+    border-radius: 10px;
+}
+
+.selectDay option{
+    background-color: #51676d8a;
+    color:rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.chooseActive {
+    margin-top:40px;
+    display: flex;
+    width: auto;
+    height:auto;
+    align-items: center;
+    padding:20px;
+}
+
+.btnReset {
+    width:auto;
+    height:auto;
+    padding:5px 10px 5px 10px;
+    font-size:20px;
+    font-weight: 700;
+    background-color: rgb(153, 27, 27);
+    border-radius: 10px;
+    margin-right:20px;
+}
+
+.btnCreate {
+    width:auto;
+    height:auto;
+    padding:5px 10px 5px 10px;
+    font-size:20px;
+    font-weight: 700;
+    background-color: rgb(42, 131, 214);
+    border-radius: 10px;
+}
+
+.inputChooseTime {
+    display: flex;
+    align-items: center;  
+}
+
+.warningToast {
+    display: flex;
+    align-items: flex-start;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(247, 194, 18);
+    width:100px;
+    word-wrap: break-word;
+}
+
+.inputChooseTime input{
+    width:100px;
+    margin-right:10px;
+    margin-left:10px;
+    -moz-appearance: textfield;
+}
+
+.inputChooseTime input::-webkit-outer-spin-button,
+.inputChooseTime input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputChooseTime span{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.inputChooseTime select{
+    width:80px;
+    height:65px;
+    border-radius: 10px;
+    border:2px solid #51676d8a;
+    background-color: #2d3447;
+    padding-left: 10px;
+    font-weight: 800;
+}
+  
+

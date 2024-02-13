@@ -3,16 +3,16 @@
     align-items: flex-start;
 }
 
-.calendar {
+.event {
     margin-left:128px;
 }
 
-.titleCalendar {
+.titleEvent {
     font-size: 24px;
     font-weight: 800;
 }
 
-.containerCalendar {
+.containerEvent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,8 +83,8 @@
     margin-top:25px;
 }
 
-.editCalendar {
-    width:270px;
+.editEvent {
+    width:300px;
     height:70px;
     background-color: #0C9D8C;
     border-radius: 20px;
@@ -100,18 +100,9 @@
     cursor: pointer;
 }
 
-.editCalendar svg{
+.editEvent svg{
     width:20px;
     height:20px;
     margin-right:10px;
     stroke-width: 1.5;
-}
-
-.formAddCalendar {
-    width:100vw;
-    height: 100vh;
-    top:0;
-    left: 0;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.493);
 }
