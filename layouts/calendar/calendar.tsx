@@ -7,8 +7,6 @@ interface CalendarProps {
   month: number;
 }
 
-
-
 const Calendar: React.FC<CalendarProps> = ({ year: initialYear, month: initialMonth }) => {
   const dataRank = [
     { id: 1, title: "Sun" },
