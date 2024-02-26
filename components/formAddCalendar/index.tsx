@@ -2,12 +2,16 @@
 import React, {useState, useEffect} from "react";
 import clsx from "clsx";
 import style from "./formAddCalendar.module.css";
+import Filter from "@/layouts/filter/filter";
 
 interface activeClose {
     onClose : () => void;
 }
 
 const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
+
+    // data filter
+    const dataFilter = ["a", "b", "c", "d"];
     
     const [formOptionBtn, setFormOptionBtn] = useState(true);
     const [openAddCalendar, setOpenAddCalendar] = useState(false);
@@ -17,11 +21,16 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
     const handleBackFormFirt = () => {
         setOpenAddCalendar(false);
         setFormOptionBtn(true);
+        setOpenEditCalendar(false)
     }
     const handleOpenAddCalendar = () => {
         setOpenAddCalendar(true);
         setFormOptionBtn(false);
     };
+    const handleOpenEditCalendar = () => {
+        setOpenEditCalendar(true);
+        setFormOptionBtn(false);
+    }
     const handleSelectDay = () => {
         setChooseDay(!chooseDay);
     }
@@ -31,6 +40,8 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
     const [showWarningHourStart, setShowWarningHourStart] = useState<string | null>("");
     const [warningMinuteStart, setWarningMinuteStart] = useState(false);
     const [showWarningMinuteStart, setShowWarningMinuteStart]= useState<string | null>("");
+    const [isTimeStart, setIsTimeStart] = useState(false);
+    const [showNoValueStart, setShowNoValueStart] = useState(false);
     const handleCheckHourStart = (event :any) => {
         const value = event.target.value;
         if (value < 0 || value > 24) {
@@ -39,6 +50,8 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
         } else {
             setWarningHourStart(false);
         };
+        value === "" && setIsTimeStart(false);
+        value !== "" && setIsTimeStart(true);
     };
     const handleCheckMinuteStart = (e:any) => {
         const value = e.target.value;
@@ -55,6 +68,8 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
     const [warningMinuteEnd, setWarningMinuteEnd] = useState(false);
     const [showWarningHourEnd, setShowWarningHourEnd] = useState<string | null>("");
     const [showwWarningMinuteEnd, setShowWarningMinuteEnd] = useState<string | null>("");
+    const [isTimeEnd, setIsTimeEnd] = useState(false);
+    const [showNoValueTimeEnd, setShowNoValueTimeEnd] = useState(false)
     const handleCheckHourEnd = (e: any) => {
         const value = e.target.value;
         if(value < 0 || value > 24) {
@@ -63,6 +78,8 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
         } else {
             setWarningHourEnd(false);
         }
+        value === "" && setIsTimeEnd(false);
+        value !== "" && setIsTimeEnd(true);
     }
 
     const handleCheckMinuteEnd = (e :any) => {
@@ -94,11 +111,9 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
     };
 
     const handleCheckData = () => {
-        if(dataName) {
-            setShowWarning(false);
-        } else {
-            setShowWarning(true);
-        }
+        dataName ? setShowWarning(false) : setShowWarning(true);
+        isTimeEnd ? setShowNoValueTimeEnd(false) : setShowNoValueTimeEnd(true);
+        isTimeStart ? setShowNoValueStart(false) : setShowNoValueStart(true);
     }
 
     const handleSubmitForm = () => {
@@ -109,6 +124,10 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
         }
     }
 
+    const handleResetForm = () => {
+        onClose();
+    }
+ 
     return (
         <>
         {formOptionBtn && <div className={clsx(style.optionActive)}>
@@ -120,6 +139,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                         TẠO LỊCH MỚI
                 </button>
                 <button 
+                    onClick={handleOpenEditCalendar}
                     className={clsx(style.btnOpenEditCalendar)}>
                         CHỈNH SỬA LỊCH
                 </button>
@@ -151,7 +171,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                     <div className={clsx(style.itemContainer)}>
                         <label>Thời gian học :</label>
                         <select className={clsx(style.selectDay)}>
-                            <option selected value="default">Chọn ngày</option>
+                            <option value="default">Chọn ngày</option>
                             <option value="monday">Thứ 2</option>
                             <option value="tuesday">Thứ 3</option>
                             <option value="wednesday">Thứ 4</option>
@@ -250,6 +270,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                 </form>
                 <div className={clsx(style.chooseActive)}>
                     <button 
+                        onClick={handleResetForm}
                         className={clsx(style.btnReset)} 
                         type="reset" 
                         value="Huy">
@@ -264,6 +285,33 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                 </div>
             </div>
         </div>}
+        {openEditCalendar && (
+            <div className={clsx(style.editCalendar)}>
+                <div className={clsx(style.headForm)}>
+                    <div className={clsx(style.optionActiveFormAdd)}>
+                        <button onClick={handleBackFormFirt} className={clsx(style.btnBack)}>back</button>
+                        <button onClick={onClose} className={clsx(style.btnClose)}>close</button>
+                    </div>
+                    <div className={clsx(style.titleForm)}>Sửa lịch học</div>
+                </div>
+                <div className={clsx(style.bodyForm)}>
+                    <div className={clsx(style.searchForm)}>
+                        <div className={clsx(style.iconSearch)}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="23" width="23" id="Magnifying-Glass--Streamline-Sharp">
+                                <g id="Magnifying-Glass--Streamline-Sharp">
+                                    <path id="Ellipse 44" stroke="#ffffff" d="M2 11a9 9 0 1 0 18 0 9 9 0 1 0 -18 0" strokeWidth="1.5"></path>
+                                    <path id="Vector 195" stroke="#ffffff" d="M17.364 17.364 22 22" strokeWidth="1.5"></path>
+                                </g>
+                            </svg>
+                        </div>
+                        <div className={clsx(style.inputSearch)}>
+                            <input type="text"  placeholder="Search ..." name="" id="" />
+                        </div>
+                    </div>
+                    <Filter />
+                </div>
+            </div>
+        )}
         </>
     )
 }

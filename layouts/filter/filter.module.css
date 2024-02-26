@@ -1,0 +1,89 @@
+.filterForm {
+    padding:10px 15px 10px 10px;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;;
+    margin-top:50px;
+    display: flex;
+    align-items: center;
+}
+.iconFilter {
+    margin-right:10px;
+}
+.titleFilter {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding-right: 40px;
+    padding-left:15px;
+    cursor: pointer;
+}
+.titleFilter:hover{
+    opacity: 0.8;
+}
+.listFilter {
+    width:400px;
+    margin-left:30px;
+    font-weight: 600;
+    color: #1f2330;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding:5px 40px 5px 0px;
+    flex-wrap: wrap;
+}
+.itemFilter {
+    width: 100px;
+    padding:5px 10px 5px 10px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.clearFilter {
+    padding:10px;
+    margin-left:20px;
+}
+.listDataFilter {
+    width: 654px;
+    height:auto;
+    padding:10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.itemDataFilter {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600px;
+    padding:20px;
+    cursor: pointer;
+}
+.itemDataFilter input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 20px; 
+    height: 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    outline: none;
+}
+.itemDataFilter input:checked {
+    background-color: #0084ff;
+    border-color: #0084ff;
+}
+.itemDataFilter label{
+    margin-left:15px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
