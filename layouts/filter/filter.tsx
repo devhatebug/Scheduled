@@ -6,12 +6,17 @@ import clsx from "clsx";
 const Filter = ({dataFilter = ["2", "b", "c", "d"]}) => {
     const [filter_checked, setFilterChecked] = useState<string[]>([]);
     const [isData, setIsData] = useState(false);
-    const[isFilter, setIsFilter] = useState(false);
+    const [checkedState, setCheckedState] = useState<boolean[]>(Array(dataFilter.length).fill(false));
     const handleShowFilter = () => {
         setIsData(!isData);
     }
-    const changeValueFilter = (e: any) => {
+    const changeValueFilter = (e: any, id:any) => {
         const isChecked = e.target.checked;
+        setCheckedState(prevState => {
+            const newState = [...prevState];
+            newState[id] = isChecked;
+            return newState;
+        });
         const label = e.target.nextElementSibling;
         const textLabel = label.innerText;
 
@@ -54,10 +59,11 @@ const Filter = ({dataFilter = ["2", "b", "c", "d"]}) => {
             {dataFilter.map((dt, id) => (
                 <div key={id} className={clsx(style.itemDataFilter)}>
                     <input 
-                        onChange={changeValueFilter} 
+                        onChange={e => changeValueFilter(e, id)} 
                         type="checkbox" 
                         name={id.toString()} 
                         id={id.toString()} 
+                        checked={checkedState[id]}
                     />
                     <label htmlFor={id.toString()} className="nameItem">{dt}</label>
                 </div>
