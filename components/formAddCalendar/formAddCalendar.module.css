@@ -7,7 +7,6 @@
     margin:0 auto;
     margin-top:150px;
 }
-
 .btnCloseFirt {
     background-color: #51676d8a;
     text-align: center;
@@ -19,7 +18,6 @@
     margin-top:20px;
     margin-right:20px;
 }
-
 .listBtn {
     display: flex;
     align-items: center;
@@ -27,7 +25,6 @@
     margin-top:170px;
     padding-right:-20px;
 }
-
 .btnOpenAddCalendar,
 .btnOpenEditCalendar {
     width:auto;
@@ -39,9 +36,7 @@
     font-size: 20px;
     margin-right:20px;
 }
-
-
-.addCalendar {
+.addCalendar, .editCalendar {
     width:50vw;
     height:700px;
     overflow-y: auto;
@@ -51,11 +46,9 @@
     margin-top:100px;
     position: relative;
 }
-
 .headForrm {
     position: fixed;
 }
-
 .btnClose {
     background-color: #51676d8a;
     text-align: center;
@@ -66,14 +59,12 @@
     float: right;
     margin-right:20px;
 }
-
 .optionActiveFormAdd {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     margin-top:20px;
 }
-
 .btnBack {
     background-color: #51676d8a;
     text-align: center;
@@ -84,39 +75,33 @@
     float: right;
     margin-right:20px;
 }
-
 .titleForm {
     text-align:center;
     font-size:25px;
     font-weight:700;
     padding-top:20px;
 }
-
 .bodyForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: auto;
 }
-
 .addCalendar::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     background-color: #2d3447;
 }
-
 .addCalendar::-webkit-scrollbar
 {
 	width: 5px;
 	background-color: #F5F5F5;
 }
-
 .addCalendar::-webkit-scrollbar-thumb
 {
     background-color: #1f2330;
 	border: 1px solid #1f2330;
     border-radius: 15px;
 }
-
 .containerForm {
     width:90%;
     margin: 0 auto;
@@ -125,7 +110,6 @@
     align-items: flex-start;
     justify-content: center;
 }
-
 .itemContainer {
     width:100%;
     margin-top:50px;
@@ -133,12 +117,10 @@
     align-items: center;
     justify-content: space-around;
 }
-
 .containerForm label{
     font-size: 20px;
     font-weight: 600;
 }
-
 .containerForm input{
     width: 300px;
     height:65px;
@@ -151,12 +133,10 @@
     font-weight: 600;
     color: rgba(255, 255, 255, 0.767);
 }
-
 .containerForm input:focus {
     border: 3px solid #2d3447;
     background-color:#51676d8a;
 }
-
 .selectDay {
     margin-left: 148px;
     display: flex;
@@ -167,14 +147,12 @@
     font-weight:600;
     border-radius: 10px;
 }
-
 .selectDay option{
     background-color: #51676d8a;
     color:rgb(255, 255, 255);
     font-size: 17px;
     font-weight: 600;
 }
-
 .chooseActive {
     margin-top:40px;
     display: flex;
@@ -183,7 +161,6 @@
     align-items: center;
     padding:20px;
 }
-
 .btnReset {
     width:auto;
     height:auto;
@@ -194,7 +171,6 @@
     border-radius: 10px;
     margin-right:20px;
 }
-
 .btnCreate {
     width:auto;
     height:auto;
@@ -204,12 +180,10 @@
     background-color: rgb(42, 131, 214);
     border-radius: 10px;
 }
-
 .inputChooseTime {
     display: flex;
     align-items: center;  
 }
-
 .warningToast {
     display: flex;
     align-items: flex-start;
@@ -219,25 +193,21 @@
     width:100px;
     word-wrap: break-word;
 }
-
 .inputChooseTime input{
     width:100px;
     margin-right:10px;
     margin-left:10px;
     -moz-appearance: textfield;
 }
-
 .inputChooseTime input::-webkit-outer-spin-button,
 .inputChooseTime input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 .inputChooseTime span{
     font-size: 25px;
     font-weight: 600;
 }
-
 .inputChooseTime select{
     width:80px;
     height:65px;
@@ -247,5 +217,29 @@
     padding-left: 10px;
     font-weight: 800;
 }
+/* css form search */
+.searchForm {
+    display: flex;
+    align-items: center;
+    margin-top:50px;
+    padding:10px 20px 10px 5px;
+    border:1px solid white;
+    border-radius: 15px;
+}
+.iconSearch {
+    padding:10px;
+}
+.inputSearch input{
+    background-color: #2d3447;
+    width:400px;
+    height: 50px;
+    padding-left:5px;
+    font-weight: 500;
+}
+.inputSearch input:focus {
+   outline: none;
+}
+
+
   
 
