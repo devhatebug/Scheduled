@@ -4,21 +4,24 @@ import style from "./filter.module.css";
 import clsx from "clsx";
 
 const Filter = ({dataFilter = ["2", "b", "c", "d"]}) => {
-    let filter_checked:any = [];
+    const [filter_checked, setFilterChecked] = useState<string[]>([]);
     const [isData, setIsData] = useState(false);
+    const[isFilter, setIsFilter] = useState(false);
     const handleShowFilter = () => {
         setIsData(!isData);
     }
     const changeValueFilter = (e: any) => {
-       const isChecked = e.target.checked;
+        const isChecked = e.target.checked;
+        const label = e.target.nextElementSibling;
+        const textLabel = label.innerText;
+
         if (isChecked) {
-            const label = e.target.nextElementSibling;
-            const textLabel = label.innerText;
-            filter_checked.push(textLabel);
-            console.log(filter_checked)
+            setFilterChecked([...filter_checked, textLabel]);
+        } else {
+            const updatedFilterChecked = filter_checked.filter(item => item !== textLabel);
+            setFilterChecked(updatedFilterChecked);
         }
     }
-    
     return (
         <>
         <div className={clsx(style.filterForm)}>
@@ -30,12 +33,14 @@ const Filter = ({dataFilter = ["2", "b", "c", "d"]}) => {
                         </g>
                     </svg>
                 </div>
-                <div>{} Filters</div>
+                <div>Filters</div>
             </div>
             <div className={clsx(style.listFilter)}>
-                <div className={clsx(style.itemFilter)}>
-                    {"list filters"}
-                </div>
+                {filter_checked.map((dt: any,id: any) => (
+                    <div key={id} className={clsx(style.itemFilter)}>
+                        {dt}
+                    </div>
+                ))}
             </div>
             <button className={clsx(style.clearFilter)}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24" width="24" id="Delete-2--Streamline-Sharp">
@@ -48,7 +53,12 @@ const Filter = ({dataFilter = ["2", "b", "c", "d"]}) => {
         {isData && <div className={clsx(style.listDataFilter)}>
             {dataFilter.map((dt, id) => (
                 <div key={id} className={clsx(style.itemDataFilter)}>
-                    <input onChange={changeValueFilter} type="checkbox" name={id.toString()} id={id.toString()} />
+                    <input 
+                        onChange={changeValueFilter} 
+                        type="checkbox" 
+                        name={id.toString()} 
+                        id={id.toString()} 
+                    />
                     <label htmlFor={id.toString()} className="nameItem">{dt}</label>
                 </div>
             ))}
