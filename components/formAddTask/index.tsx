@@ -1,33 +1,33 @@
 "use client";
 import React, {useState, useEffect} from "react";
 import clsx from "clsx";
-import style from "./formAddCalendar.module.css";
+import style from "./formAddTask.module.css";
 import Filter from "@/layouts/filter/filter";
 
 interface activeClose {
     onClose : () => void;
 }
 
-const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
+const AddTaskForm : React.FC<activeClose> = ({onClose}) => {
 
     // data filter
     
     const [formOptionBtn, setFormOptionBtn] = useState(true);
-    const [openAddCalendar, setOpenAddCalendar] = useState(false);
-    const [openEditCalendar, setOpenEditCalendar] = useState(false);
+    const [openAddTask, setOpenAddTask] = useState(false);
+    const [openEditTask, setOpenEditTask] = useState(false);
     const [chooseDay, setChooseDay] = useState(false);
 
     const handleBackFormFirt = () => {
-        setOpenAddCalendar(false);
+        setOpenAddTask(false);
         setFormOptionBtn(true);
-        setOpenEditCalendar(false)
+        setOpenEditTask(false)
     }
-    const handleOpenAddCalendar = () => {
-        setOpenAddCalendar(true);
+    const handleOpenAddTask = () => {
+        setOpenAddTask(true);
         setFormOptionBtn(false);
     };
-    const handleOpenEditCalendar = () => {
-        setOpenEditCalendar(true);
+    const handleOpenEditTask = () => {
+        setOpenEditTask(true);
         setFormOptionBtn(false);
     }
     const handleSelectDay = () => {
@@ -133,32 +133,32 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
             <button className={clsx(style.btnCloseFirt)} onClick={onClose}>close</button>
             <div className={clsx(style.listBtn)}>
                 <button
-                    onClick={handleOpenAddCalendar}
-                    className={clsx(style.btnOpenAddCalendar)}>
-                        TẠO LỊCH MỚI
+                    onClick={handleOpenAddTask}
+                    className={clsx(style.btnOpenAddTask)}>
+                        TẠO NHIỆM VỤ MỚI
                 </button>
                 <button 
-                    onClick={handleOpenEditCalendar}
-                    className={clsx(style.btnOpenEditCalendar)}>
-                        CHỈNH SỬA LỊCH
+                    onClick={handleOpenEditTask}
+                    className={clsx(style.btnOpenEditTask)}>
+                        CHỈNH SỬA NHIỆM VỤ
                 </button>
             </div>
         </div>}
-        {openAddCalendar && 
-        <div className={clsx(style.addCalendar)}>
+        {openAddTask && 
+        <div className={clsx(style.addTask)}>
             <div className={clsx(style.headForm)}>
                 <div className={clsx(style.optionActiveFormAdd)}>
                     <button onClick={handleBackFormFirt} className={clsx(style.btnBack)}>back</button>
                     <button onClick={onClose} className={clsx(style.btnClose)}>close</button>
                 </div>
-                <div className={clsx(style.titleForm)}>Thêm lịch học</div>
+                <div className={clsx(style.titleForm)}>Thêm nhiệm vụ</div>
             </div>
 
             <div className={clsx(style.bodyForm)}>
-                <form className={clsx(style.containerForm)} method="POST" id="formAddCalendar">
+                <form className={clsx(style.containerForm)} method="POST" id="formAddTask">
                     <div className={clsx(style.itemContainer)}>
                         <label htmlFor="name_subject">
-                            Tên môn học :
+                            Tên nhiệm vụ :
                             {showWarning && 
                                 <div className={clsx(style.warningToast)}>
                                     {warning}
@@ -168,7 +168,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                         <input onChange={followValueName} id="name_subject" type="text" name="nameSubject"/>
                     </div>
                     <div className={clsx(style.itemContainer)}>
-                        <label>Thời gian học :</label>
+                        <label>Thời gian :</label>
                         <select className={clsx(style.selectDay)}>
                             <option value="default">Chọn ngày</option>
                             <option value="monday">Thứ 2</option>
@@ -261,11 +261,6 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                             </select>
                         </div>
                     </div>
-
-                    <div className={clsx(style.itemContainer)}>
-                        <label htmlFor="location_study">Địa điểm học :</label>
-                        <input id="location_study" type="text" />
-                    </div>
                 </form>
                 <div className={clsx(style.chooseActive)}>
                     <button 
@@ -279,13 +274,13 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                         onClick={handleSubmitForm}
                         className={clsx(style.btnCreate)} 
                         value="Tạo lịch">
-                            Tạo lịch
+                            Tạo nhiệm vụ
                     </button>
                 </div>
             </div>
         </div>}
-        {openEditCalendar && (
-            <div className={clsx(style.editCalendar)}>
+        {openEditTask && (
+            <div className={clsx(style.editTask)}>
                 <div className={clsx(style.headForm)}>
                     <div className={clsx(style.optionActiveFormAdd)}>
                         <button onClick={handleBackFormFirt} className={clsx(style.btnBack)}>back</button>
@@ -315,4 +310,4 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
     )
 }
 
-export default AddCalendarForm;
+export default AddTaskForm;

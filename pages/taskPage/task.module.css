@@ -120,3 +120,12 @@
     margin-right:10px;
     stroke-width: 1.5;
 }
+
+.formAddTask {
+    width:100vw;
+    height: 100vh;
+    top:0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.493);
+}
