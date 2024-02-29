@@ -3,8 +3,17 @@ import clsx from "clsx";
 import style from "./task.module.css";
 import { useEffect, useState } from "react";
 import Calendar from "@/layouts/calendar/calendar";
+import AddTaskForm from "@/components/formAddTask";
 
 export default function TaskPage() {
+
+    const [openForm, setOpenForm] = useState(false);
+    const handleOpenForm =  () => {
+        setOpenForm(true);
+    }
+    const handleCloseForm = () => {
+        setOpenForm(false);
+    }
 
     let fakeData = [
         {
@@ -77,7 +86,7 @@ export default function TaskPage() {
                     <Calendar year={year} month={month} />
                 </div>
                 <div className={clsx(style.task)}>
-                    <div className={clsx(style.titleTask)}>Lịch của bạn</div>
+                    <div className={clsx(style.titleTask)}>Nhiệm vụ của bạn</div>
                     <div className={clsx(style.containerTask)}>
                         <div className={clsx(style.listItem)}>
                             {fakeData.slice(startData, limitData).map((data, index) => { 
@@ -119,7 +128,7 @@ export default function TaskPage() {
                     </div>
                 </div>
             </div>
-            <div className={clsx(style.editTask)}>
+            <button onClick={handleOpenForm} className={clsx(style.editTask)}>
                 <svg fill="none" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
                     <g stroke="#fff" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m6.9257 13.202-3 0.26 0.26-3 6.24-6.2c0.0932-0.09524 0.2044-0.17092 0.3272-0.22259 0.1227-0.05167 0.2546-0.07828 0.3878-0.07828s0.2651 0.02661 0.3879 0.07828 0.234 0.12735 0.3271 0.22259l1.27 1.28c0.0937 0.09297 0.1681 0.20357 0.2189 0.32543s0.0769 0.25256 0.0769 0.38457-0.0261 0.26272-0.0769 0.38458-0.1252 0.23246-0.2189 0.32542l-6.2 6.24z"/>
@@ -127,7 +136,10 @@ export default function TaskPage() {
                     </g>
                 </svg>
                 <div>Tạo / Chỉnh sửa nhiệm vụ</div>
-            </div>
+            </button>
+            {openForm && <div className={clsx(style.formAddTask)}>
+            <AddTaskForm onClose={handleCloseForm} />
+            </div> }
         </div>
     )
 }
