@@ -67,7 +67,7 @@ export default function EventPage() {
                     <Calendar year={year} month={month} />
                 </div>
                 <div className={clsx(style.event)}>
-                    <div className={clsx(style.titleEvent)}>Lịch của bạn</div>
+                    <div className={clsx(style.titleEvent)}>Sự kiện của bạn</div>
                     <div className={clsx(style.containerEvent)}>
                         <div className={clsx(style.listItem)}>
                             {fakeData.slice(startData, limitData).map((data, index) => (
