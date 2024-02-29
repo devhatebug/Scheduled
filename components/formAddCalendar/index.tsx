@@ -11,7 +11,6 @@ interface activeClose {
 const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
 
     // data filter
-    const dataFilter = ["a", "b", "c", "d"];
     
     const [formOptionBtn, setFormOptionBtn] = useState(true);
     const [openAddCalendar, setOpenAddCalendar] = useState(false);
@@ -295,7 +294,7 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                     <div className={clsx(style.titleForm)}>Sửa lịch học</div>
                 </div>
                 <div className={clsx(style.bodyForm)}>
-                    <div className={clsx(style.searchForm)}>
+                    {/* <div className={clsx(style.searchForm)}>
                         <div className={clsx(style.iconSearch)}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="23" width="23" id="Magnifying-Glass--Streamline-Sharp">
                                 <g id="Magnifying-Glass--Streamline-Sharp">
@@ -307,8 +306,8 @@ const AddCalendarForm : React.FC<activeClose> = ({onClose}) => {
                         <div className={clsx(style.inputSearch)}>
                             <input type="text"  placeholder="Search ..." name="" id="" />
                         </div>
-                    </div>
-                    <Filter />
+                    </div> */}
+                    
                 </div>
             </div>
         )}

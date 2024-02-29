@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import style from "./filter.module.css";
 import clsx from "clsx";
 
-const Filter = ({dataFilter = ["2", "b", "c", "d"]}) => {
+const Filter = ({ dataFilter }: { dataFilter: string[] }) => {
     const [filter_checked, setFilterChecked] = useState<string[]>([]);
     const [isData, setIsData] = useState(false);
     const [checkedState, setCheckedState] = useState<boolean[]>(Array(dataFilter.length).fill(false));
